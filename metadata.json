@@ -1,0 +1,6 @@
+{
+  "name": "AETHER-CIVIC: Autonomous Smart City Command Center",
+  "description": "Autonomous Smart City Incident & Proof-of-Resolution Command Center aligned with UN SDG 11: Sustainable Cities & Communities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
