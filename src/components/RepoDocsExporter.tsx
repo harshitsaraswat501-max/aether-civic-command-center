@@ -9,10 +9,7 @@ import {
   ShieldCheck,
   Download,
 } from 'lucide-react';
-import {
-  runAetherCivicUnitTestSuite,
-  UnitTestOutcome,
-} from '../../tests/aetherCivic.test';
+
 import { SUPABASE_SQL_SCHEMA } from '../services/supabaseClient';
 import { AppLanguage, tr } from '../services/uiPreferences';
 
