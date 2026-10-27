@@ -19,8 +19,10 @@ Municipal grievance systems in growing NCR hubs like **Sonipat (Sector 14, NH-44
   4. *SLA Watchdog Agent:* Automatically reopens breached tickets and penalizes contractor trust ratings.
 - **Supabase Backend & RBAC:** Real-time PostgreSQL tables (`incidents`, `agent_logs`) and role-based authentication.
 
-## 3. How to Run Locally
+
+⁠
+3. How to Run Locally
 1. Clone the repository:
-   ```bash
+    ⁠bash
    git clone <your-repository-url>
    cd aether-civic
