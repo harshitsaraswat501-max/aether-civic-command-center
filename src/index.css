@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* Default Dark Mode Variables */
+    --bg-canvas: #070B14;
+    --bg-header: #0A101E;
+    --bg-card: #0D1322;
+    --bg-subcard: #070B14;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --border-subtle: rgba(148, 163, 184, 0.16);
+    --border-hover: rgba(0, 245, 212, 0.65);
+    --accent-cyan: #00F5D4;
+    --accent-amber: #FFB703;
+    --accent-crimson: #FF2A85;
+    --card-glow: 0 12px 32px -8px rgba(0, 245, 212, 0.14);
+  }
+
+  html.theme-light {
+    --bg-canvas: #F1F5F9;
+    --bg-header: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-subcard: #F8FAFC;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --border-subtle: #CBD5E1;
+    --border-hover: #0D9488;
+    --accent-cyan: #0F766E;
+    --accent-amber: #D97706;
+    --accent-crimson: #E11D48;
+    --card-glow: 0 12px 30px -6px rgba(13, 148, 136, 0.16);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sleek 2px Card with Gradient Glow on Hover (Adapts to Dark & Light Mode) */
+.civic-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease;
+}
+
+.civic-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-glow);
+}
+
+.civic-subcard {
+  background-color: var(--bg-subcard);
+  border: 2px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease;
+}
+
+.civic-subcard-interactive:hover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: var(--border-hover);
+  box-shadow: var(--card-glow);
+}
+
+.civic-btn {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease;
+}
+
+.civic-btn:hover:not(:disabled) {
+  transform: scale(1.03);
+}
+
+.civic-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.text-theme-primary {
+  color: var(--text-primary);
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--text-muted);
+}
+
+.bg-theme-header {
+  background-color: var(--bg-header);
+}
+
+.border-theme {
+  border-color: var(--border-subtle);
+}
+
+/* Leaflet Interactive Map Styling & Glowing Incident Pins */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #070B14;
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--border-hover);
+  border-radius: 0.85rem !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55) !important;
+  padding: 2px;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-card) !important;
+}
+
+@keyframes aetherPulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.15);
+    opacity: 0;
+  }
+}
+
+.aether-pin-pulse {
+  animation: aetherPulseRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
